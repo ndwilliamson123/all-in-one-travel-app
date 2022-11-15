@@ -1,0 +1,11 @@
+[
+  {
+    "Id": 1,
+    "UserId": "6a777929-ca21-4a68-b1b6-e44dd822aafd",
+    "Name": "Test User",
+    "Email": "test@test.com",
+    "PasswordSalt": "",
+    "Password": "",
+    "CountryId": 2
+  }
+]

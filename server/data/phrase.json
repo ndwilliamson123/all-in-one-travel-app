@@ -1,0 +1,12 @@
+[
+  {
+    "Id": 1,
+    "OriginalLanguageId": 1,
+    "Text": "Help me!"
+  },
+  {
+    "Id": 2,
+    "OriginalLanguageId": 1,
+    "Text": "Call the police!"
+  }
+]

@@ -1,0 +1,98 @@
+[
+  {
+    "Id": 1,
+    "HomeCountryId": 2,
+    "DestinationCountryId": 3,
+    "Address": "2 Av. Gabriel, 75008 Paris, France",
+    "Website": "https://fr.usembassy.gov/",
+    "Phone": "+33143122222"
+  },
+  {
+    "Id": 2,
+    "HomeCountryId": 2,
+    "DestinationCountryId": 4,
+    "Address": "C. de Serrano, 75, 28006 Madrid, Spain",
+    "Website": "https://es.usembassy.gov/",
+    "Phone": "+34915872200"
+  },
+  {
+    "Id": 3,
+    "HomeCountryId": 2,
+    "DestinationCountryId": 1,
+    "Address": "490 Sussex Dr, Ottawa, ON K1N 1G8, Canada",
+    "Website": "https://ca.usembassy.gov/",
+    "Phone": "+16136885335"
+  },
+  {
+    "Id": 4,
+    "HomeCountryId": 1,
+    "DestinationCountryId": 3,
+    "Address": "P130 Rue du Faubourg Saint-Honoré, 75008 Paris, France",
+    "Website": "https://www.international.gc.ca/country-pays/france/paris.aspx?lang=eng",
+    "Phone": "+33144432900"
+  },
+  {
+    "Id": 5,
+    "HomeCountryId": 1,
+    "DestinationCountryId": 4,
+    "Address": "P.º de la Castellana, 259d, 28046 Torre Emperador, Madrid, Spain",
+    "Website": "http://www.spain.gc.ca/",
+    "Phone": "+34913828400"
+  },
+  {
+    "Id": 6,
+    "HomeCountryId": 1,
+    "DestinationCountryId": 2,
+    "Address": "501 Pennsylvania Avenue NW 3rd floor, Washington, DC 20001",
+    "Website": "https://www.canada.ca/Canada-In-Washington",
+    "Phone": "+12026821740"
+  },
+  {
+    "Id": 7,
+    "HomeCountryId": 3,
+    "DestinationCountryId": 2,
+    "Address": "4101 Reservoir Rd NW, Washington, DC 20007",
+    "Website": "https://franceintheus.org/",
+    "Phone": "+12029446000"
+  },
+  {
+    "Id": 8,
+    "HomeCountryId": 3,
+    "DestinationCountryId": 4,
+    "Address": "C. de Salustiano Olózaga, 9, 28001 Madrid, Spain",
+    "Website": "https://es.ambafrance.org/",
+    "Phone": "+34914238900"
+  },
+  {
+    "Id": 9,
+    "HomeCountryId": 3,
+    "DestinationCountryId": 1,
+    "Address": "42 Sussex Dr, Ottawa, ON K1M 2C9, Canada",
+    "Website": "https://ca.ambafrance.org/",
+    "Phone": "+16137891795"
+  },
+  {
+    "Id": 10,
+    "HomeCountryId": 4,
+    "DestinationCountryId": 3,
+    "Address": "6 Rue Greuze, 75116 Paris, France",
+    "Website": "https://www.exteriores.gob.es/Embajadas/paris/es/Paginas/index.aspx",
+    "Phone": "+33153700520"
+  },
+  {
+    "Id": 11,
+    "HomeCountryId": 4,
+    "DestinationCountryId": 2,
+    "Address": "2375 Pennsylvania Avenue NW, Washington, DC 20037",
+    "Website": "https://www.exteriores.gob.es/Embajadas/washington/es/Paginas/index.aspx",
+    "Phone": "+12024520100"
+  },
+  {
+    "Id": 12,
+    "HomeCountryId": 4,
+    "DestinationCountryId": 1,
+    "Address": "74 Stanley Ave, Ottawa, ON K1M 1P4, Canada",
+    "Website": "https://www.exteriores.gob.es/Embajadas/ottawa/es/Paginas/index.aspx",
+    "Phone": "+16137472252"
+  }
+]
