@@ -9,7 +9,7 @@ const exampleRoute = require("./routes/example")
 const homeRoute = require("./routes/home")
 const translatorRoute = require("./routes/translator")
 
-// allow connections from outside our domain
+// allow connections from outside server domain
 app.use(cors());
 
 // converting any data received from client to JSON

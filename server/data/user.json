@@ -1,6 +1,5 @@
 [
   {
-    "Id": 1,
     "UserId": "6a777929-ca21-4a68-b1b6-e44dd822aafd",
     "Name": "Test User USA",
     "Email": "test@test.com",
@@ -9,12 +8,11 @@
     "CountryId": 2
   },
   {
-    "Id": 2,
     "UserId": "4a0296b1-1d23-483e-9112-c1527d9ff003",
     "Name": "Test User Canada",
     "Email": "test2@test2.com",
     "PasswordSalt": "",
     "Password": "",
-    "CountryId": 1
+    "HomeCountryId": 1
   }
 ]

@@ -1,19 +1,24 @@
 [
   {
     "Id": 1,
-    "Name": "Canada"
+    "Name": "Canada",
+    "Return_reqs": "A valid Canadian passport is the only reliable and universally accepted travel document. It provides proof that you are a citizen and have the right to enter Canada without being subjected to immigration screening. Make sure that the expiry date of the passport is well beyond your planned return date.",
+    "Police_Phone": "911"
   },
   {
     "Id": 2,
     "Name": "United States of America",
-    "Return": "American citizens entering the U.S. from Canada, Mexico, the Caribbean, and Bermuda must show a valid passport, U.S. passport card, a Trusted Traveler Program card (NEXUS, SENTRI, Global Entry or FAST), or an enhanced driver's license. All travelers entering the United States from all other countries need a passport upon arrival (regardless of their country of citizenship)."
+    "Return_reqs": "American citizens entering the U.S. from Canada, Mexico, the Caribbean, and Bermuda must show a valid passport, U.S. passport card, a Trusted Traveler Program card (NEXUS, SENTRI, Global Entry or FAST), or an enhanced driver's license. All travelers entering the United States from all other countries need a passport upon arrival (regardless of their country of citizenship).",
+    "Police_Phone": "911"
   },
   {
     "Id": 3,
-    "Name": "France"
+    "Name": "France",
+    "Police_Phone": "112"
   },
   {
     "Id": 4,
-    "Name": "Spain"
+    "Name": "Spain",
+    "Police_Phone": "112"
   }
 ]
