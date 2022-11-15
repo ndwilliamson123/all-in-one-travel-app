@@ -1,6 +1,6 @@
 const exampleModel = require('../models/exampleModel');
 
-function getAllData(req, res) {
+function getAllData() {
     console.log('controller')
     return exampleModel.getAllData()
 }

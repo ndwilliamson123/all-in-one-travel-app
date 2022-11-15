@@ -4,10 +4,6 @@
         "LanguageId": 1
     },
     {
-        "CountryId": 1,
-        "LanguageId": 2
-    },
-    {
         "CountryId": 2,
         "LanguageId": 1
     },

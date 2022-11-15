@@ -7,6 +7,7 @@ const app = express();
 // setting routes
 const exampleRoute = require("./routes/example")
 const homeRoute = require("./routes/home")
+const translatorRoute = require("./routes/translator")
 
 // allow connections from outside our domain
 app.use(cors());
@@ -33,6 +34,7 @@ app.use((req, res, next) => {
 //API routes
 app.use("/example", exampleRoute)
 app.use("/home", homeRoute)
+app.use("/translator", translatorRoute)
 
 // start listening for connections
 app.listen(PORT, () => {
