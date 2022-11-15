@@ -5,7 +5,8 @@
   },
   {
     "Id": 2,
-    "Name": "United States of America"
+    "Name": "United States of America",
+    "Return": "American citizens entering the U.S. from Canada, Mexico, the Caribbean, and Bermuda must show a valid passport, U.S. passport card, a Trusted Traveler Program card (NEXUS, SENTRI, Global Entry or FAST), or an enhanced driver's license. All travelers entering the United States from all other countries need a passport upon arrival (regardless of their country of citizenship)."
   },
   {
     "Id": 3,

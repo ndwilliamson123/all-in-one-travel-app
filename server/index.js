@@ -5,7 +5,8 @@ const express = require("express");
 const app = express();
 
 // setting routes
-const embassyRoute = require("./routes/embassy")
+const exampleRoute = require("./routes/example")
+const homeRoute = require("./routes/home")
 
 // allow connections from outside our domain
 app.use(cors());
@@ -17,19 +18,21 @@ app.use(express.json());
 app.use((req, res, next) => {
   console.log("request received", new Date());
 
-  const error = req.body.status;
+  const userId = req.body.userId
 
-  if (!error) {
+  if (userId !== undefined) {
     console.log("Valid request:", new Date());
     next();
   } else {
     res.json({
-      message: "Bad request:",
+      message: "Bad request: invalid user ID",
     });
   }
 });
 
-app.use("/embassy", embassyRoute)
+//API routes
+app.use("/example", exampleRoute)
+app.use("/home", homeRoute)
 
 // start listening for connections
 app.listen(PORT, () => {
