@@ -7,7 +7,7 @@ exports.up = function (knex) {
     .createTable("country", (table) => {
       table.increments("id").primary();
       table.string("name").notNullable();
-      table.string("return_reqs");
+      table.string("return_reqs", 500);
       table.string("police_phone");
     })
     .createTable("language", (table) => {
@@ -31,7 +31,7 @@ exports.up = function (knex) {
       table.string("name");
       table.string("email").notNullable();
       table.string("password_salt").notNullable();
-      table.string("password").notNullable();
+      table.string("password_hash").notNullable();
       table.integer("home_country_id").unsigned().notNullable();
       table
         .foreign("home_country_id")
@@ -42,10 +42,12 @@ exports.up = function (knex) {
     })
     .createTable("trip", (table) => {
       table.increments("id").primary();
-      table.string("traveler_id").notNullable();
+      table.string("user_id").notNullable();
       table.integer("destination_country_id").unsigned().notNullable();
+      table.date("date_start").notNullable();
+      table.date("date_end");
       table
-        .foreign("traveler_id")
+        .foreign("user_id")
         .references("user_id")
         .inTable("user")
         .onUpdate("CASCADE")
