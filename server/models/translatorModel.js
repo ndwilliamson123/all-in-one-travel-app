@@ -1,15 +1,26 @@
-const fs = require("fs");
+const knex = require("knex")(require("../knexfile").development);
 
-function getLanguageTranslations(languageId) {
-  const phrases = JSON.parse(fs.readFileSync("./data/phrase.json"));
+async function getLanguageTranslations(languageId) {
+  let translationData = {};
+  await knex
+    .raw(
+      `SELECT travel_app.phrase.id, travel_app.phrase.text, travel_app.translation.translation
+      FROM travel_app.phrase
+      JOIN travel_app.translation
+      ON translation.phrase_id = phrase.id AND translation.language_id = ${languageId};`
+    )
+    .then((db_data) => {
+      translationData = db_data[0];
+    })
+    .catch((error) => {
+      console.log(error, new Date());
+      userHomeData = {
+        message:
+          "There was an error retrieving the data. Please try again later.",
+      };
+    });
 
-  const translations = JSON.parse(
-    fs.readFileSync("./data/translation.json")
-  ).filter((phrase) => phrase.LanguageId === languageId);
-
-  //need DB join query to combine phrases db 'text'
-
-  return translations;
+  return translationData;
 }
 
 module.exports = {

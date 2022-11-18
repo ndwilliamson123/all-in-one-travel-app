@@ -1,9 +1,18 @@
-const homeModel = require('../models/homeModel');
+const homeModel = require("../models/homeModel");
 
-function getUserCountryData(userId) {
-    return homeModel.getUserCountryData(userId)
+async function getUserHomeData(req, res) {
+  await homeModel
+    .getUserHome(req.body.userId)
+    .then((userHomeData) => {
+      res.json(userHomeData);
+    })
+    .catch((error) => {
+      res.status(500).json({
+        error,
+      });
+    });
 }
 
 module.exports = {
-    getUserCountryData
-}
+  getUserHomeData,
+};

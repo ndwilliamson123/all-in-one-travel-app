@@ -20,11 +20,15 @@ exports.up = function (knex) {
       table
         .foreign("country_id")
         .references("id")
-        .inTable("country");
+        .inTable("country")
+        .onUpdate("CASCADE")
+        .onDelete("CASCADE");
       table
         .foreign("language_id")
         .references("id")
-        .inTable("language");
+        .inTable("language")
+        .onUpdate("CASCADE")
+        .onDelete("CASCADE");
     })
     .createTable("user", (table) => {
       table.string("user_id").primary();

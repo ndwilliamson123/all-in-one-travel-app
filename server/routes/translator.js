@@ -1,10 +1,8 @@
 const router = require("express").Router();
-const translatorController = require('../controllers/translatorController');
-const fs = require("fs");
+const translatorController = require("../controllers/translatorController");
 
 router.get("/", (req, res) => {
-    const languageId = req.body.languageId
-    res.json(translatorController.getLanguageTranslations(languageId))
+  translatorController.getLanguageTranslations(req, res);
 });
 
 module.exports = router;

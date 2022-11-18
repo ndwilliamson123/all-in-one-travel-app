@@ -5,9 +5,8 @@ const express = require("express");
 const app = express();
 
 // setting routes
-const exampleRoute = require("./routes/example")
-const homeRoute = require("./routes/home")
-const translatorRoute = require("./routes/translator")
+const homeRoute = require("./routes/home");
+const translatorRoute = require("./routes/translator");
 
 // allow connections from outside server domain
 app.use(cors());
@@ -19,7 +18,7 @@ app.use(express.json());
 app.use((req, res, next) => {
   console.log("request received", new Date());
 
-  const userId = req.body.userId
+  const userId = req.body.userId;
 
   if (userId !== undefined) {
     console.log("Valid request:", new Date());
@@ -32,9 +31,8 @@ app.use((req, res, next) => {
 });
 
 //API routes
-app.use("/example", exampleRoute)
-app.use("/home", homeRoute)
-app.use("/translator", translatorRoute)
+app.use("/home", homeRoute);
+app.use("/translator", translatorRoute);
 
 // start listening for connections
 app.listen(PORT, () => {

@@ -1,20 +1,34 @@
-const fs = require("fs");
+const knex = require("knex")(require("../knexfile").development);
 
-function getUserCountryData(userId) {
-  const userOriginCountry = JSON.parse(
-    fs.readFileSync("./data/user.json")
-  ).find((user) => user.UserId === userId).CountryId;
+async function getUserHomeData(userId) {
+  let userHomeData = {};
+  await knex
+    .select("home_country_id")
+    .from("travel_app.user")
+    .where("user_id", userId)
+    .then((db_data) => {
+      return db_data[0].home_country_id;
+    })
+    .then((home_country_id) => {
+      return knex
+        .select("return_reqs", "name")
+        .from("travel_app.country")
+        .where("id", home_country_id)
+        .then((db_data) => {
+          userHomeData = db_data[0];
+        });
+    })
+    .catch((error) => {
+      console.log(error, new Date());
+      userHomeData = {
+        message:
+          "There was an error retrieving the data. Please try again later.",
+      };
+    });
 
-  const countryData = JSON.parse(fs.readFileSync("./data/country.json"));
-
-  //filtering to the user's country (simulating DB query)
-  const userCountry = countryData.find(
-    (country) => country.Id === userOriginCountry
-  );
-
-  return userCountry;
-};
+  return userHomeData;
+}
 
 module.exports = {
-  getUserCountryData,
+  getUserHomeData,
 };
