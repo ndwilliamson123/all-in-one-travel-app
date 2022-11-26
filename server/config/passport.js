@@ -7,7 +7,7 @@ const verifyCallback = (username, password, done) => {
   userModel
     .getUserByEmail(username)
     .then((userData) => {
-      if (userData.length === 0) {
+      if (userData === undefined) {
         return done(null, false);
       }
 
@@ -24,6 +24,7 @@ const verifyCallback = (username, password, done) => {
       }
     })
     .catch((error) => {
+      console.log(error)
       done(error);
     });
 };

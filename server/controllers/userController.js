@@ -2,18 +2,8 @@ const userModel = require("../models/userModel");
 const {v4: uuidv4 } = require('uuid');
 
 const passwordUtils = require("../lib/passwordUtils");
-const crypto = require("crypto");
-const iterations = parseInt(process.env.ITERATIONS);
-const length = parseInt(process.env.LENGTH);
-const algo = process.env.ALGO;
 
-// async function authenticateUser(req, res) {
-//     res.json({
-//       message: "this is working properly, for now"
-//     })
-// }
-
-async function registerUser(req, res) {
+function registerUser(req, res) {
   //VALIDATE USER INPUT HERE, trim, special chars, etc.
 
   const saltAndHash = passwordUtils.generatePassword(req.body.password);
@@ -34,5 +24,5 @@ async function registerUser(req, res) {
 }
 
 module.exports = {
-  authenticateUser,
+  registerUser,
 };

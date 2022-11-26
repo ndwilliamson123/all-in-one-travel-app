@@ -2,7 +2,10 @@ const router = require("express").Router();
 const passport = require("passport");
 const userController = require("../controllers/userController");
 
-router.post("/login", passport.authenticate('local', { failureRedirect: '/login-failure', successRedirect: '/login-success'}), (req, res) => {
+router.post("/", passport.authenticate('local'), (req, res) => {
+  res.json({
+    message: "Login attempted"
+  })
   // userController.authenticateUser(req, res);
 });
 

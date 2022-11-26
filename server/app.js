@@ -1,6 +1,7 @@
 require("dotenv").config();
 const port = process.env.PORT || 5150;
 const secretKey = process.env.SECRET_KEY;
+const frontEndDomain = process.env.FRONTEND_DOMAIN
 
 const cors = require("cors");
 const express = require("express");
@@ -20,8 +21,13 @@ const homeRoute = require("./routes/home");
 const translatorRoute = require("./routes/translator");
 const userRoute = require("./routes/user");
 
-// allow connections from outside server domain
-app.use(cors());
+// allow connections from outside server domain, specifying front end domain to send/receive cookies
+app.use(cors({
+  origin: frontEndDomain,
+  preflightContinue: true,
+  methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
+  credentials: true,
+}));
 
 // enable req.body middleware
 app.use(express.json());
@@ -39,10 +45,6 @@ app.use(
   })
 );
 
-
-
-
-
 require("./config/passport");
 
 app.use(passport.initialize());
@@ -50,16 +52,14 @@ app.use(passport.session());
 
 app.use((req, res, next) => {
   console.log("request received", new Date());
-
   console.log(req.session);
-
   next();
 });
 
 //API routes
 app.use("/home", homeRoute);
 app.use("/translator", translatorRoute);
-app.use("/user", userRoute);
+app.use("/login", userRoute);
 
 app.use(handleError);
 
