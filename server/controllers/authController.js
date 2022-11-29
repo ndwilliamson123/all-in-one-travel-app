@@ -1,23 +1,23 @@
 const authModel = require("../models/authModel");
 const {v4: uuidv4 } = require('uuid');
-
 const passwordUtils = require("../lib/passwordUtils");
 
+/**
+ * 
+ * @param {object} req express.js req object 
+ * @param {object} res express.js res object
+ */
 function loginUser(req, res) {
-  // get user ID from session ID
-  // console.log("USER AUTHENTICATION COPMLETE................................")
-  // console.log(req.session.id);
+  // if passport authentication was successful, inform user
   res.json({
-    message: "Login attempted"
+    message: "Login successful"
   })
 }
-
 
 function registerUser(req, res) {
   //VALIDATE USER INPUT HERE, trim, special chars, in case frontend spoof etc.
 
   const saltAndHash = passwordUtils.generatePassword(req.body.password);
-
   const { salt, hash } = saltAndHash;
 
   const newUser = {

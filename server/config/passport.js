@@ -24,7 +24,7 @@ const verifyCallback = (username, password, done) => {
       }
     })
     .catch((error) => {
-      console.log(error);
+      console.log(error, new Date());
       done(error);
     });
 };
@@ -34,19 +34,17 @@ const strategy = new LocalStrategy(verifyCallback);
 passport.use(strategy);
 
 passport.serializeUser((user, done) => {
-  console.log("serial", user.email);
-  done(null, user);
+  done(null, user.email);
 });
 
-passport.deserializeUser((user, done) => {
-  console.log("deserial", user.email);
-
+passport.deserializeUser((userEmail, done) => {
   authModel
-    .getUserByEmail(user.email)
+    .getUserByEmail(userEmail)
     .then((userData) => {
-      done(null, userData);
+      done(null, userData.email);
     })
     .catch((error) => {
+      console.log(error, new Date());
       done(error);
     });
 });

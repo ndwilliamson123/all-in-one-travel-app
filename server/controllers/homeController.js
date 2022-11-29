@@ -2,7 +2,7 @@ const homeModel = require("../models/homeModel");
 
 async function getUserHomeData(req, res) {
   await homeModel
-    .getUserHomeData(req.session.passport.user.user_id)
+    .getUserHomeData(req.session.passport.user)
     .then((userHomeData) => {
       res.json(userHomeData);
     })
