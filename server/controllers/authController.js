@@ -1,10 +1,20 @@
-const userModel = require("../models/userModel");
+const authModel = require("../models/authModel");
 const {v4: uuidv4 } = require('uuid');
 
 const passwordUtils = require("../lib/passwordUtils");
 
+function loginUser(req, res) {
+  // get user ID from session ID
+  // console.log("USER AUTHENTICATION COPMLETE................................")
+  // console.log(req.session.id);
+  res.json({
+    message: "Login attempted"
+  })
+}
+
+
 function registerUser(req, res) {
-  //VALIDATE USER INPUT HERE, trim, special chars, etc.
+  //VALIDATE USER INPUT HERE, trim, special chars, in case frontend spoof etc.
 
   const saltAndHash = passwordUtils.generatePassword(req.body.password);
 
@@ -24,5 +34,6 @@ function registerUser(req, res) {
 }
 
 module.exports = {
+  loginUser,
   registerUser,
 };

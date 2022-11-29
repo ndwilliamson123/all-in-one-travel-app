@@ -1,16 +1,13 @@
 const router = require("express").Router();
 const passport = require("passport");
-const userController = require("../controllers/userController");
+const authController = require("../controllers/authController");
 
 router.post("/", passport.authenticate('local'), (req, res) => {
-  res.json({
-    message: "Login attempted"
-  })
-  // userController.authenticateUser(req, res);
+  authController.loginUser(req, res)
 });
 
 router.post("/register", (req, res) => {
-    userController.registerUser(req, res);
+    authController.registerUser(req, res);
 })
 
 module.exports = router;

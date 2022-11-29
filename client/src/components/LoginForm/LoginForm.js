@@ -2,7 +2,7 @@ import { useState } from "react";
 import "./LoginForm.scss";
 import axios from "axios";
 
-export default function LoginForm() {
+export default function LoginForm({history}) {
   const [username, setUsername] = useState("test@test.com");
   const [password, setPassword] = useState("abc123");
 
@@ -11,7 +11,7 @@ export default function LoginForm() {
 
     axios
       .post(
-        "http://localhost:8080/login",
+        "http://localhost:8080/auth",
         {
           username,
           password,
@@ -19,8 +19,9 @@ export default function LoginForm() {
         { withCredentials: true }
       )
       .then((response) => {
-        alert("valid username and password");
         console.log(response);
+        
+        history.push("/home")
       })
       .catch((error) => {
         alert("invalid username or password");
