@@ -16,6 +16,23 @@ async function getUserByEmail(email) {
   return userData;
 }
 
+async function getUserByUserId(userId) {
+  let userData = {};
+  await knex
+    .select("*")
+    .from("travel_app.user")
+    .where("user_id", userId)
+    .then((db_data) => {
+      userData = db_data[0];
+    })
+    .catch((error) => {
+      console.log('error',error, new Date());
+    });
+
+  return userData;
+}
+
 module.exports = {
   getUserByEmail,
+  getUserByUserId,
 };

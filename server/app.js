@@ -17,9 +17,10 @@ const sessionStore = new KnexSessionStore({
 const app = express();
 
 // setting routes
+const authRoute = require("./routes/auth");
 const homeRoute = require("./routes/home");
 const translatorRoute = require("./routes/translator");
-const authRoute = require("./routes/auth");
+const tripsRoute = require("./routes/trips");
 const e = require("cors");
 
 // allow connections from outside server domain, specifying front end domain to send/receive cookies
@@ -82,6 +83,7 @@ app.use((req, res, next) => {
 // API routes
 app.use("/auth", authRoute);
 app.use("/home", homeRoute);
+app.use("/trips", tripsRoute);
 app.use("/translator", translatorRoute);
 
 app.use(handleError);

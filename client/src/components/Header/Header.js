@@ -7,8 +7,10 @@ export default function Header() {
       <div>My Travel App</div>
       <p>This is a header!</p>
       <nav>
-        <Link to="/">Home</Link>
+        <Link to="/">Landing</Link>
         <Link to="/login">Login</Link>
+        <Link to="/home">Home</Link>
+        <Link to="/trips">Trips</Link>
       </nav>
     </header>
   );

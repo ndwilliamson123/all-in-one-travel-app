@@ -34,14 +34,14 @@ const strategy = new LocalStrategy(verifyCallback);
 passport.use(strategy);
 
 passport.serializeUser((user, done) => {
-  done(null, user.email);
+  done(null, user.user_id);
 });
 
-passport.deserializeUser((userEmail, done) => {
+passport.deserializeUser((userId, done) => {
   authModel
-    .getUserByEmail(userEmail)
+    .getUserByUserId(userId)
     .then((userData) => {
-      done(null, userData.email);
+      done(null, userData.user_id);
     })
     .catch((error) => {
       console.log(error, new Date());
