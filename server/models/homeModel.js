@@ -1,11 +1,11 @@
 const knex = require("knex")(require("../knexfile").development);
 
-async function getUserHomeData(userId) {
+async function getUserHomeData(userEmail) {
   let userHomeData = {};
   await knex
     .select("home_country_id")
     .from("travel_app.user")
-    .where("user_id", userId)
+    .where("email", userEmail)
     .then((db_data) => {
       return db_data[0].home_country_id;
     })
