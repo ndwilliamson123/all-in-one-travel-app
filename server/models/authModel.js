@@ -1,35 +1,37 @@
 const knex = require("knex")(require("../knexfile").development);
 
-async function getUserByEmail(email) {
-  let userData = {};
-  await knex
+function getUserByEmail(email) {
+  return knex
     .select("*")
     .from("travel_app.user")
     .where("email", email)
     .then((db_data) => {
-      userData = db_data[0];
+      return db_data[0];
     })
     .catch((error) => {
-      console.log('error',error, new Date());
+      console.log("error", error, new Date());
+      return {
+        message:
+          "There was an error validating your account. Please try again later.",
+      };
     });
-
-  return userData;
 }
 
-async function getUserByUserId(userId) {
-  let userData = {};
-  await knex
+function getUserByUserId(userId) {
+  return knex
     .select("*")
     .from("travel_app.user")
     .where("user_id", userId)
     .then((db_data) => {
-      userData = db_data[0];
+      return db_data[0];
     })
     .catch((error) => {
-      console.log('error',error, new Date());
+      console.log("error", error, new Date());
+      return {
+        message:
+          "There was an error validating your account. Please try again later.",
+      };
     });
-
-  return userData;
 }
 
 module.exports = {

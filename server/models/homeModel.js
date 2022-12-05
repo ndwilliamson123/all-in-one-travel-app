@@ -14,7 +14,7 @@ function getHomeDataByUserId(userId) {
         .from("travel_app.country")
         .where("id", home_country_id)
         .then((db_data) => {
-          return db_data[0]
+          return db_data[0];
         });
     })
     .catch((error) => {

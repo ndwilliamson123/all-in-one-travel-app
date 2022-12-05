@@ -1,19 +1,30 @@
 import { useState } from "react";
-import "./LoginForm.scss";
+import "./RegistrationForm.scss";
 import axios from "axios";
 import { API_prefix } from "../../App";
 
-export default function LoginForm({ history }) {
-  const [username, setLogin] = useState("test@test.com");
-  const [password, setPassword] = useState("abc123");
+export default function RegistrationForm({ history }) {
+  const [name, setName] = useState();
+  const [homeCountry, setHomeCountry] = useState();
+  const [username, setLogin] = useState();
+  const [password, setPassword] = useState();
 
   const handleSubmit = (event) => {
     event.preventDefault();
 
+    console.log({
+      name,
+      homeCountry,
+      username,
+      password,
+    });
+
     axios
       .post(
-        `${API_prefix}/auth`,
+        `${API_prefix}/register`,
         {
+          name,
+          homeCountry,
           username,
           password,
         },
@@ -31,6 +42,22 @@ export default function LoginForm({ history }) {
 
   return (
     <form onSubmit={handleSubmit}>
+      <label>Name: </label>
+      <input
+        type="text"
+        name="name"
+        value={name}
+        placeholder="Enter your name"
+        onChange={(event) => setName(event.target.value)}
+      ></input>
+      <label>Select your home country: </label>
+      <select
+        name="homeCountry"
+        onChange={(event) => setHomeCountry(event.target.value)}
+      >
+        <option value={2}>United States of America</option>
+        <option value={1}>Canada</option>
+      </select>
       <label>Email: </label>
       <input
         type="text"
@@ -47,7 +74,7 @@ export default function LoginForm({ history }) {
         placeholder="Enter your password"
         onChange={(event) => setPassword(event.target.value)}
       ></input>
-      <button type="submit">Log In</button>
+      <button type="submit">Register</button>
     </form>
   );
 }

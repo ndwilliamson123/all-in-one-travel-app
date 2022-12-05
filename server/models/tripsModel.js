@@ -6,8 +6,7 @@ function getTripsByUserId(userId) {
     .from("travel_app.trip")
     .where("user_id", userId)
     .then((db_data) => {
-        console.log(db_data)
-      tripData = db_data;
+      return db_data;
     })
     .catch((error) => {
       console.log(error, new Date());
@@ -19,5 +18,5 @@ function getTripsByUserId(userId) {
 }
 
 module.exports = {
-    getTripsByUserId,
+  getTripsByUserId,
 };

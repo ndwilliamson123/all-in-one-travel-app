@@ -5,6 +5,7 @@ const frontEndDomain = process.env.FRONTEND_DOMAIN;
 
 const cors = require("cors");
 const express = require("express");
+const app = express();
 const session = require("express-session");
 const passport = require("passport");
 const KnexSessionStore = require("connect-session-knex")(session);
@@ -14,14 +15,11 @@ const sessionStore = new KnexSessionStore({
   tablename: "session",
 });
 
-const app = express();
-
 // setting routes
 const authRoute = require("./routes/auth");
 const homeRoute = require("./routes/home");
 const translatorRoute = require("./routes/translator");
 const tripsRoute = require("./routes/trips");
-const e = require("cors");
 
 // allow connections from outside server domain, specifying front end domain to send/receive cookies
 app.use(
