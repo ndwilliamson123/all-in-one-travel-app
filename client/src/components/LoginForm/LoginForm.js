@@ -1,9 +1,10 @@
 import { useState } from "react";
 import "./LoginForm.scss";
 import axios from "axios";
+import { API_prefix } from "../../App";
 
-export default function LoginForm({history}) {
-  const [username, setUsername] = useState("test@test.com");
+export default function LoginForm({ history }) {
+  const [username, setLogin] = useState("test@test.com");
   const [password, setPassword] = useState("abc123");
 
   const handleSubmit = (event) => {
@@ -11,7 +12,7 @@ export default function LoginForm({history}) {
 
     axios
       .post(
-        "http://localhost:8080/auth",
+        `${API_prefix}/login`,
         {
           username,
           password,
@@ -19,9 +20,8 @@ export default function LoginForm({history}) {
         { withCredentials: true }
       )
       .then((response) => {
-        console.log(response);
-        
-        history.push("/home")
+        console.log(response.data);
+        history.push("/home");
       })
       .catch((error) => {
         alert("invalid username or password");
@@ -37,7 +37,7 @@ export default function LoginForm({history}) {
         name="username"
         value={username}
         placeholder="Enter your email"
-        onChange={(event) => setUsername(event.target.value)}
+        onChange={(event) => setLogin(event.target.value)}
       ></input>
       <label>Password: </label>
       <input

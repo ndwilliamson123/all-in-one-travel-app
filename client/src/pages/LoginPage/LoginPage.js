@@ -1,11 +1,17 @@
 import "./LoginPage.scss";
 import { LoginForm } from "../../components";
-import { useHistory } from "react-router-dom";
+import { useHistory, Link } from "react-router-dom";
 
 export default function LoginPage(props) {
-    const history = useHistory();
+  const history = useHistory();
 
-    return (
-        <LoginForm history={history}/>
-    )
+  return (
+    <>
+      <p>Please enter your login information</p>
+      <LoginForm history={history} />
+      <p>
+        New user? Register <Link to="/register">here</Link>!
+      </p>
+    </>
+  );
 }

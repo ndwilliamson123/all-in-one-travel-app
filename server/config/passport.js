@@ -1,10 +1,10 @@
 const passport = require("passport");
-const authModel = require("../models/authModel");
+const loginModel = require("../models/loginModel");
 const LocalStrategy = require("passport-local").Strategy;
 const passwordUtils = require("../lib/passwordUtils");
 
 const verifyCallback = (username, password, done) => {
-  authModel
+  loginModel
     .getUserByEmail(username)
     .then((userData) => {
       if (userData === undefined) {
@@ -34,14 +34,14 @@ const strategy = new LocalStrategy(verifyCallback);
 passport.use(strategy);
 
 passport.serializeUser((user, done) => {
-  done(null, user.email);
+  done(null, user.user_id);
 });
 
-passport.deserializeUser((userEmail, done) => {
-  authModel
-    .getUserByEmail(userEmail)
+passport.deserializeUser((userId, done) => {
+  loginModel
+    .getUserByUserId(userId)
     .then((userData) => {
-      done(null, userData.email);
+      done(null, userData.user_id);
     })
     .catch((error) => {
       console.log(error, new Date());

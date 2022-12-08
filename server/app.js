@@ -5,6 +5,7 @@ const frontEndDomain = process.env.FRONTEND_DOMAIN;
 
 const cors = require("cors");
 const express = require("express");
+const app = express();
 const session = require("express-session");
 const passport = require("passport");
 const KnexSessionStore = require("connect-session-knex")(session);
@@ -14,20 +15,21 @@ const sessionStore = new KnexSessionStore({
   tablename: "session",
 });
 
-const app = express();
-
 // setting routes
+const loginRoute = require("./routes/login");
+const registrationRoute = require("./routes/registration");
 const homeRoute = require("./routes/home");
 const translatorRoute = require("./routes/translator");
-const authRoute = require("./routes/auth");
-const e = require("cors");
+const tripsRoute = require("./routes/trips");
+
+app.options("/register", cors());
 
 // allow connections from outside server domain, specifying front end domain to send/receive cookies
 app.use(
   cors({
     origin: frontEndDomain,
     preflightContinue: true,
-    methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
+    methods: ["GET", "HEAD", "PUT", "PATCH", "POST", "DELETE"],
     credentials: true,
   })
 );
@@ -55,33 +57,43 @@ app.use(passport.session());
 
 // middleware executed upon every request
 app.use((req, res, next) => {
-
-  if (!req.user && req.url !== "/auth") {
-    console.log(`request received from unauthenticated user`, new Date());
-    res.status(401).json({
-      message: "Unauthorized request or authentication expired. Please log in.",
-    });
-  } else {
-    if (req.method === "OPTIONS") {
-      // log nothing, preventing duplicate log for user authentication request
-    } else if (req.body.username) {
-      console.log(
-        `authentication request received from ${req.body.username}`,
-        new Date()
-      );
-    } else {
-      console.log(
-        `request received from ${req.user ? req.user : req.body.username}`,
-        new Date()
-      );
-    }
+  if (req.url === "/register") {
+    console.log(
+      `registration request received from ${req.body.email}`,
+      new Date()
+    );
     next();
+  } else {
+    if (!req.user && req.url !== "/login") {
+      console.log(`request received from unauthenticated user`, new Date());
+      res.status(401).json({
+        message:
+          "Unauthorized request or authentication expired. Please log in.",
+      });
+    } else {
+      if (req.method === "OPTIONS") {
+        // log nothing, preventing duplicate log for user authentication request
+      } else if (req.body.username) {
+        console.log(
+          `authentication request received from ${req.body.username}`,
+          new Date()
+        );
+      } else {
+        console.log(
+          `request received from ${req.user ? req.user : req.body.username}`,
+          new Date()
+        );
+      }
+      next();
+    }
   }
 });
 
 // API routes
-app.use("/auth", authRoute);
+app.use("/login", loginRoute);
+app.use("/register", registrationRoute);
 app.use("/home", homeRoute);
+app.use("/trips", tripsRoute);
 app.use("/translator", translatorRoute);
 
 app.use(handleError);

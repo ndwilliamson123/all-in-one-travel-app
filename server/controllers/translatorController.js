@@ -1,8 +1,8 @@
 const translatorModel = require("../models/translatorModel");
 
-async function getLanguageTranslations(req, res) {
+async function getStandardTranslations(req, res) {
   await translatorModel
-    .getLanguageTranslations(req.body.languageId)
+    .getStandardTranslations(req.body.languageId)
     .then((translationData) => {
       res.json(translationData);
     })
@@ -14,5 +14,5 @@ async function getLanguageTranslations(req, res) {
 }
 
 module.exports = {
-  getLanguageTranslations,
+  getStandardTranslations,
 };

@@ -1,22 +1,25 @@
 import "./HomePage.scss";
 import axios from "axios";
+import { useEffect } from "react";
+import { TripsList } from "../../components";
+import { API_prefix } from "../../App";
 
 export default function HomePage(props) {
-  const handleClick = () => {
+  useEffect(() => {
     axios
-      .get("http://localhost:8080/home", { withCredentials: true })
+      .get(`${API_prefix}/home`, { withCredentials: true })
       .then((response) => {
-        console.log(response);
+        console.log(response.data);
       })
       .catch((error) => {
         console.log(error);
       });
-  };
+  });
 
   return (
     <div>
-      User Data Here
-      <button onClick={handleClick}>GET data</button>
+      <h1>User Home Data Here</h1>
+      <TripsList />
     </div>
   );
 }
