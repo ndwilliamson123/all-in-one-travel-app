@@ -10,7 +10,7 @@ export default function RegistrationPage(props) {
       <p>Please enter your information to create your account</p>
       <RegistrationForm history={history} />
       <p>
-        Already signed up? Click <Link to="/register">here</Link> to login!
+        Already signed up? Click <Link to="/login">here</Link> to login!
       </p>
     </>
   );

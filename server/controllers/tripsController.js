@@ -14,5 +14,5 @@ function getTripsByUserId(req, res) {
 }
 
 module.exports = {
-    getTripsByUserId,
+  getTripsByUserId,
 };

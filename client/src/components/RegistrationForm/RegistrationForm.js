@@ -4,40 +4,42 @@ import axios from "axios";
 import { API_prefix } from "../../App";
 
 export default function RegistrationForm({ history }) {
-  const [name, setName] = useState();
-  const [homeCountry, setHomeCountry] = useState();
-  const [username, setLogin] = useState();
-  const [password, setPassword] = useState();
+  const [name, setName] = useState("");
+  const [homeCountryId, setHomeCountryId] = useState(2);
+  const [username, setLogin] = useState("");
+  const [password, setPassword] = useState("");
+
+  /**
+   *
+   * @param {string} str input string from user
+   * @returns {boolean} true if contains invalid special characters, false if email is valid
+   */
+  function validateEmail(email) {
+    const specialChars = /[`!#$%^&*()_\-=[\]{};':"\\|,<>/?~]/;
+    return !specialChars.test(email);
+  }
 
   const handleSubmit = (event) => {
     event.preventDefault();
 
-    console.log({
-      name,
-      homeCountry,
-      username,
-      password,
-    });
-
-    axios
-      .post(
-        `${API_prefix}/register`,
-        {
+    if (!validateEmail(username)) {
+      alert("Invalid email. Please correct and resubmit");
+    } else {
+      axios
+        .put(`${API_prefix}/register`, {
           name,
-          homeCountry,
-          username,
+          home_country_id: homeCountryId,
+          email: username,
           password,
-        },
-        { withCredentials: true }
-      )
-      .then((response) => {
-        console.log(response.data);
-        history.push("/home");
-      })
-      .catch((error) => {
-        alert("invalid username or password");
-        console.log(error);
-      });
+        })
+        .then((response) => {
+          alert(response.data.message);
+          history.push("/login");
+        })
+        .catch((error) => {
+          alert(error.response.data.message);
+        });
+    }
   };
 
   return (
@@ -53,7 +55,7 @@ export default function RegistrationForm({ history }) {
       <label>Select your home country: </label>
       <select
         name="homeCountry"
-        onChange={(event) => setHomeCountry(event.target.value)}
+        onChange={(event) => setHomeCountryId(event.target.value)}
       >
         <option value={2}>United States of America</option>
         <option value={1}>Canada</option>

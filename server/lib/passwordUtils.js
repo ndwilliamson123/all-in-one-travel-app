@@ -4,7 +4,7 @@ const length = parseInt(process.env.LENGTH);
 const algo = process.env.ALGO;
 
 /**
- * 
+ *
  * @param {string} password the current user's entered password
  * @param {string} hash the current user's stored hash
  * @param {string} salt the current user's stored salt
@@ -18,7 +18,7 @@ function validatePassword(password, hash, salt) {
 }
 
 /**
- * 
+ *
  * @param {string} password the new user's password
  * @returns {object} new user's generated salt and hash from password
  */

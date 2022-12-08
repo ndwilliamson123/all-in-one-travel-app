@@ -12,7 +12,7 @@ export default function LoginForm({ history }) {
 
     axios
       .post(
-        `${API_prefix}/auth`,
+        `${API_prefix}/login`,
         {
           username,
           password,
