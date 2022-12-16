@@ -13,6 +13,7 @@ exports.up = function (knex) {
     .createTable("language", (table) => {
       table.increments("id").primary();
       table.string("name").notNullable();
+      table.string("ISO639").notNullable();
     })
     .createTable("country_language", (table) => {
       table.integer("country_id").unsigned().notNullable();
