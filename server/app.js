@@ -1,5 +1,5 @@
 require("dotenv").config();
-const port = process.env.PORT || 5150;
+const port = process.env.PORT || 8080;
 const secretKey = process.env.SECRET_KEY;
 const frontEndDomain = process.env.FRONTEND_DOMAIN;
 
@@ -45,7 +45,7 @@ app.use(
     saveUninitialized: false,
     store: sessionStore,
     cookie: {
-      maxAge: 1000 * 10, //10 seconds for testing
+      maxAge: 1000 * 60 * 60 * 24, // session is valid for 24 hours
     },
   })
 );
@@ -57,15 +57,27 @@ app.use(passport.session());
 
 // middleware executed upon every request
 app.use((req, res, next) => {
-  if (req.url === "/register") {
+
+  // setting session cookie maxAge to 0 to invalidate any future requests
+  if(req.url === "/logout") {
     console.log(
-      `registration request received from ${req.body.email}`,
+      `${req.method} logout request received from ${req.user}`,
+      new Date()
+    );
+    console.log(req.session)
+    req.session.cookie.maxAge = 0;
+    res.json({
+      message: "Logout successful"
+    })
+  } else if (req.url === "/register") {
+    console.log(
+      `${req.method} registration request received from ${req.body.email}`,
       new Date()
     );
     next();
   } else {
     if (!req.user && req.url !== "/login") {
-      console.log(`request received from unauthenticated user`, new Date());
+      console.log(`${req.method} request received from unauthenticated user`, new Date());
       res.status(401).json({
         message:
           "Unauthorized request or authentication expired. Please log in.",
@@ -73,14 +85,15 @@ app.use((req, res, next) => {
     } else {
       if (req.method === "OPTIONS") {
         // log nothing, preventing duplicate log for user authentication request
-      } else if (req.body.username) {
+      } else 
+      if (req.body.username) {
         console.log(
-          `authentication request received from ${req.body.username}`,
+          `${req.method} authentication request received from ${req.body.username}`,
           new Date()
         );
       } else {
         console.log(
-          `request received from ${req.user ? req.user : req.body.username}`,
+          `${req.method} request received to ${req.url} from ${req.user ? req.user : req.body.username}`,
           new Date()
         );
       }

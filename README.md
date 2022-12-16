@@ -75,15 +75,15 @@ This is my capstone project for the BrainStation Web Development course. I incor
 ## <a id="getting-started"></a> Getting Started
 
 This is an example of how you may give instructions on setting up your project locally.
-To get a local copy up and running follow these simple example steps.
+To get a local copy up and running follow these steps.
 
 ### <a id="installation"></a> Installation
 
-1. Clone the repo
+1. Clone the repo:
    ```sh
    git clone https://github.com/ndwilliamson123/all-in-one-travel-app.git
    ```
-2. Install NPM packages in both the "\client" and "\server" folders
+2. Install NPM packages in both the "\client" and "\server" folders:
    ```sh
    cd client
    npm install
@@ -92,7 +92,29 @@ To get a local copy up and running follow these simple example steps.
    cd ../server
    npm install
    ```
-3. .env file....
+3. Create a .env file:
+   ```sh
+   touch .env
+   ```
+4. Add the following properties to the .env file:
+   ```sh
+   PORT=8080
+   dbUser =
+   dbPassword =
+   SECRET_KEY = 
+   FRONTEND_DOMAIN = http://localhost:3000
+
+   ITERATIONS =
+   LENGTH =
+   ALGO =
+   GOOGLE_API_KEY = 
+   ```
+5. Create a MySQL Schema called "travel_app" (or use your own, but replace the    `database` property in the knexfile.js file). Once complete:
+   ```sh
+   knex migrate:latest
+   ```
+6. Seed data...
+
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -103,7 +125,6 @@ To get a local copy up and running follow these simple example steps.
 - [ ] Feature 1
 - [ ] Feature 2
 - [ ] Feature 3
-  - [ ] Nested Feature
 
 See the [open issues](https://github.com/ndwilliamson123/all-in-one-travel-app/issues) for a full list of proposed features (and known issues).
 
@@ -113,7 +134,7 @@ See the [open issues](https://github.com/ndwilliamson123/all-in-one-travel-app/i
 
 ## <a id="contributing"></a> Contributing
 
-Contributions are what make the open source community such an amazing place to learn, inspire, and create. Any contributions you make are **greatly appreciated**.
+Contributions are what make the open source community such an amazing place to learn, inspire, and create. Any contributions you make are welcomed.
 
 If you have a suggestion that would make this better or where I could improve, please fork the repo and create a pull request. You can also simply open an issue with the tag "enhancement".
 
@@ -151,4 +172,4 @@ Thank you so much to my BrainStation instructors and TAs for all their knowledge
 
 ## <a id="disclaimer"></a> Disclaimer
 
-This project is for software development practice only. While much of the data is accurate, it is not consistently maintained and should NOT be relied upon while planning any international travel.
+This project is for software development practice only. While much of the data is accurate as of December 2022, it is not consistently maintained and should NOT be relied upon while planning any domestic or international travel.

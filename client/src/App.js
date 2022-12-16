@@ -5,8 +5,9 @@ import {
   LandingPage,
   LoginPage,
   RegistrationPage,
-  HomePage,
+  MyHomePage,
   PageNotFound,
+  MyProfilePage,
 } from "./pages";
 
 export const API_prefix = "http://localhost:8080";
@@ -26,7 +27,14 @@ export default function App() {
             path="/register"
             component={(props) => <RegistrationPage {...props} />}
           />
-          <Route path="/home" component={(props) => <HomePage {...props} />} />
+          <Route
+            path="/home"
+            component={(props) => <MyHomePage {...props} />}
+          />
+          <Route
+            path="/profile"
+            component={(props) => <MyProfilePage {...props} />}
+          />
           <Route path="/*" component={PageNotFound} />
         </Switch>
       </main>

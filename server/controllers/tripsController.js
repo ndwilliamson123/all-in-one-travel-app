@@ -13,6 +13,20 @@ function getTripsByUserId(req, res) {
     });
 }
 
+function getHotelByTripId(req, res) {
+  tripsModel
+    .getHotelByTripId(req.query.tripId)
+    .then((hotelData) => {
+      res.json(hotelData)
+    })
+    .catch((error) => {
+      res.status(500).json({
+        error,
+      })
+    })
+}
+
 module.exports = {
   getTripsByUserId,
+  getHotelByTripId,
 };

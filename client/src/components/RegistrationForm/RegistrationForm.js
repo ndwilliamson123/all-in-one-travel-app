@@ -3,21 +3,21 @@ import "./RegistrationForm.scss";
 import axios from "axios";
 import { API_prefix } from "../../App";
 
-export default function RegistrationForm({ history }) {
-  const [name, setName] = useState("");
-  const [homeCountryId, setHomeCountryId] = useState(2);
-  const [username, setLogin] = useState("");
-  const [password, setPassword] = useState("");
+/**
+ *
+ * @param {string} str input string from user
+ * @returns {boolean} true if contains invalid special characters, false if email is valid
+ */
+export function validateEmail(email) {
+  const specialChars = /[`!#$%^&*()_\-=[\]{};':"\\|,<>/?~]/;
+  return !specialChars.test(email);
+}
 
-  /**
-   *
-   * @param {string} str input string from user
-   * @returns {boolean} true if contains invalid special characters, false if email is valid
-   */
-  function validateEmail(email) {
-    const specialChars = /[`!#$%^&*()_\-=[\]{};':"\\|,<>/?~]/;
-    return !specialChars.test(email);
-  }
+export default function RegistrationForm({ history }) {
+  const [name, setName] = useState();
+  const [homeCountryId, setHomeCountryId] = useState(2);
+  const [username, setLogin] = useState();
+  const [password, setPassword] = useState();
 
   const handleSubmit = (event) => {
     event.preventDefault();
