@@ -1,12 +1,6 @@
 <a id="readme-top"></a>
 <br />
 
-# TODO on this readme
-### About The Project
-### Getting Started
-### Roadmap
-
-
 <div align="center">
   <h1 align="center">All In One Travel App</h1>
   <p align="center">
@@ -51,7 +45,7 @@
 <!-- ABOUT THE PROJECT -->
 ## <a id="about-the-project"></a> About The Project
 
-This is my capstone project for the BrainStation Web Development course. I incorporated many of the concepts I've learned over the past 8 months while giving myself a project
+This is my capstone project for the BrainStation Web Development course. I incorporated many of the concepts I've learned over the past 8 months while giving myself a project. With the foundation my instuctors and TAs have provided, I was able to self-teach integration with Google Cloud APIs, learn and incorporate password salts and hashing, and Express.js sessions with CORs configuration.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -83,40 +77,52 @@ To get a local copy up and running follow these steps.
    ```sh
    git clone https://github.com/ndwilliamson123/all-in-one-travel-app.git
    ```
-2. Install NPM packages in both the "\client" and "\server" folders:
+2. Install NPM packages in "\client" folder:
    ```sh
    cd client
    npm install
    ```
+3. Create a client side .env file:
+   ```sh
+   touch .env
+   ```
+4. Add the following properties to the client side .env file
+   ```sh
+    REACT_APP_GOOGLE_MAPS_API_KEY = 
+    REACT_APP_GOOGLE_GEOCODING_API_KEY = 
+   ```
+5. Navigate to the "\server" folder and install NPM packages:
    ```sh
    cd ../server
    npm install
    ```
-3. Create a .env file:
+6. Create a server side .env file:
    ```sh
    touch .env
    ```
-4. Add the following properties to the .env file:
+7. Add the following properties to the .env file:
    ```sh
    PORT=8080
    dbUser =
    dbPassword =
    SECRET_KEY = 
-   FRONTEND_DOMAIN = http://localhost:3000
+   FRONTEND_DOMAIN = 
 
    ITERATIONS =
    LENGTH =
    ALGO =
    GOOGLE_API_KEY = 
    ```
-5. Create a MySQL Schema called "travel_app" (or use your own, but replace the    `database` property in the knexfile.js file). Once complete:
+8. Create a MySQL Schema called "travel_app" (or use your own, but replace the    `database` property in the knexfile.js file). Once complete:
    ```sh
    knex migrate:latest
    ```
-6. Seed data is provided to get you started:
+9. Seed data is provided to get you started:
    ```sh
    knex seed:run
    ```
+
+Please reach out to me if you have any questions: <a href="#contact">Contact me</a>
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -124,9 +130,9 @@ To get a local copy up and running follow these steps.
 
 ## <a id="roadmap"></a> Roadmap
 
-- [ ] Feature 1
-- [ ] Feature 2
-- [ ] Feature 3
+- [ ] Front-end and back-end user input validation on forms for stability and error handling
+- [ ] More interactive map with directions from user's hotel address to requested locations
+- [ ] Allow user to save their own specific translated phrases
 
 See the [open issues](https://github.com/ndwilliamson123/all-in-one-travel-app/issues) for a full list of proposed features (and known issues).
 
