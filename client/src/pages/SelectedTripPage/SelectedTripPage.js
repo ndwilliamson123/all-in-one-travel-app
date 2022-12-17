@@ -96,8 +96,7 @@ export default function SelectedTripPage(props) {
         ></textarea>
         <button type="submit">Translate</button>
       </form>
-      <h1>Emergency Contacts</h1>
-      <Map />
+      <Map hotelAddress={hotelData.address} />
     </div>
   );
 }
