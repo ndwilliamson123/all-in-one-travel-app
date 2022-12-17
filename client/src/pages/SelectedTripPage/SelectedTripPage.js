@@ -1,4 +1,4 @@
-import { TranslationCard } from "../../components";
+import { TranslationCard, Map } from "../../components";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { API_prefix } from "../../App";
@@ -57,7 +57,7 @@ export default function SelectedTripPage(props) {
         withCredentials: true,
       })
       .then((response) => {
-        setTranslatedPhrase(response.data)
+        setTranslatedPhrase(response.data);
       })
       .catch((error) => {
         console.log(error);
@@ -97,7 +97,7 @@ export default function SelectedTripPage(props) {
         <button type="submit">Translate</button>
       </form>
       <h1>Emergency Contacts</h1>
-      <h1>To Google Maps Integration</h1>
+      <Map />
     </div>
   );
 }
