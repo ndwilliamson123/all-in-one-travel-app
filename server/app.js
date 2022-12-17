@@ -21,6 +21,7 @@ const registrationRoute = require("./routes/registration");
 const homeRoute = require("./routes/home");
 const translatorRoute = require("./routes/translator");
 const tripsRoute = require("./routes/trips");
+const emergencyInfoRoute = require("./routes/emergencyInfo")
 
 app.options("/register", cors());
 
@@ -108,6 +109,7 @@ app.use("/register", registrationRoute);
 app.use("/home", homeRoute);
 app.use("/trips", tripsRoute);
 app.use("/translator", translatorRoute);
+app.use("/emergency-info", emergencyInfoRoute);
 
 app.use(handleError);
 

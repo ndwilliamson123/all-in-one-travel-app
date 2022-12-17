@@ -26,11 +26,10 @@ export default function TripList({ selectTrip }) {
           history.push("/login");
         }
       });
-  }, []);
+  }, [history]);
 
   return (
     <div>
-      <p>List of Trips!</p>
       <ul className="trip-list">
         {trips.map((trip, index) => {
           return (

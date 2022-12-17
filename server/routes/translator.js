@@ -5,4 +5,8 @@ router.get("/", (req, res) => {
   translatorController.getStandardTranslations(req, res);
 });
 
+router.get("/on-demand", (req, res) => {
+  translatorController.getOnDemandTranslation(req, res);
+});
+
 module.exports = router;

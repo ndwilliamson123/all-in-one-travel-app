@@ -1,4 +1,5 @@
 const knex = require("knex")(require("../knexfile").development);
+const generalUtils = require("../lib/generalUtils");
 
 /**
  *
@@ -28,7 +29,7 @@ function insertNewUser(user) {
       return response;
     })
     .catch((error) => {
-      return error;
+      return generalUtils.errorRetrievingData(error)
     });
 }
 

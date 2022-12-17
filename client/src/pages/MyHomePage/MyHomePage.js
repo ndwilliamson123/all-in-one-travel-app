@@ -12,7 +12,6 @@ export default function HomePage() {
   const history = useHistory();
 
   const selectTrip = (trip) => {
-    console.log(trip);
     setSelectedTrip(trip);
     localStorage.setItem("selectedTrip", JSON.stringify(trip));
   };
