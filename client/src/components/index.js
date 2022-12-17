@@ -4,3 +4,4 @@ export { default as LoginForm } from "./LoginForm/LoginForm";
 export { default as RegistrationForm } from "./RegistrationForm/RegistrationForm";
 export { default as TripList } from "./TripList/TripList";
 export { default as TripCard } from "./TripCard/TripCard";
+export { default as TranslationCard } from "./TranslationCard/TranslationCard";

@@ -1,4 +1,5 @@
 const knex = require("knex")(require("../knexfile").development);
+const generalUtils = require("../lib/generalUtils");
 
 /**
  *
@@ -14,11 +15,7 @@ function getTripsByUserId(userId) {
       return db_data;
     })
     .catch((error) => {
-      console.log("error", error, new Date());
-      return {
-        message:
-          "There was an error retrieving the data. Please try again later.",
-      };
+      return generalUtils.errorRetrievingData(error)
     });
 }
 
@@ -31,10 +28,7 @@ function getHotelByTripId(tripId) {
       return db_data[0];
     })
     .catch((error) => {
-      return {
-        message:
-          "There was an error retrieving the data. Please try again later.",
-      };
+      return generalUtils.errorRetrievingData(error)
     });
 }
 

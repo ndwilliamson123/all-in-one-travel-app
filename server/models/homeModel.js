@@ -1,4 +1,5 @@
 const knex = require("knex")(require("../knexfile").development);
+const generalUtils = require("../lib/generalUtils");
 
 function getHomeDataByUserId(userId) {
   const returnData = {};
@@ -22,11 +23,7 @@ function getHomeDataByUserId(userId) {
         });
     })
     .catch((error) => {
-      console.log("error", error, new Date());
-      return {
-        message:
-          "There was an error retrieving the data. Please try again later.",
-      };
+      return generalUtils.errorRetrievingData(error)
     });
 }
 

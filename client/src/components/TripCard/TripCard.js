@@ -1,5 +1,5 @@
 import "./TripCard.scss";
-import { useHistory, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 const months = [
   null,
@@ -25,8 +25,6 @@ const countries = [
 ];
 
 export default function TripCard({ trip, index, clickCard }) {
-  const history = useHistory();
-
   const handleClick = () => {
     clickCard(index);
   };

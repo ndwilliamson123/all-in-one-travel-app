@@ -113,8 +113,10 @@ To get a local copy up and running follow these steps.
    ```sh
    knex migrate:latest
    ```
-6. Seed data...
-
+6. Seed data is provided to get you started:
+   ```sh
+   knex seed:run
+   ```
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 

@@ -4,26 +4,17 @@
  */
 exports.up = function (knex) {
   return knex.schema
-    .createTable("country", (table) => {
-      table.increments("id").primary();
-      table.string("name").notNullable();
-      table.string("return_reqs", 500);
-      table.string("police_phone");
-    })
     .createTable("language", (table) => {
       table.increments("id").primary();
       table.string("name").notNullable();
       table.string("ISO639").notNullable();
     })
-    .createTable("country_language", (table) => {
-      table.integer("country_id").unsigned().notNullable();
+    .createTable("country", (table) => {
+      table.increments("id").primary();
+      table.string("name").notNullable();
       table.integer("language_id").unsigned().notNullable();
-      table
-        .foreign("country_id")
-        .references("id")
-        .inTable("country")
-        .onUpdate("CASCADE")
-        .onDelete("CASCADE");
+      table.string("return_reqs", 500);
+      table.string("police_phone");
       table
         .foreign("language_id")
         .references("id")
@@ -79,7 +70,7 @@ exports.up = function (knex) {
       table.increments("id").primary();
       table.integer("phrase_id").unsigned().notNullable();
       table.integer("language_id").unsigned().notNullable();
-      table.string("translation").notNullable();
+      table.string("text").notNullable();
       table
         .foreign("phrase_id")
         .references("id")
@@ -140,7 +131,6 @@ exports.down = function (knex) {
     .dropTable("phrase")
     .dropTable("trip")
     .dropTable("user")
-    .dropTable("country_language")
-    .dropTable("language")
-    .dropTable("country");
+    .dropTable("country")
+    .dropTable("language");
 };
