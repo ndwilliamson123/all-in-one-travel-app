@@ -71,7 +71,7 @@ export default function RegistrationForm({ history }) {
       <label>Password: </label>
       <input
         type="password"
-        name="email"
+        name="password"
         value={password}
         placeholder="Enter your password"
         onChange={(event) => setPassword(event.target.value)}

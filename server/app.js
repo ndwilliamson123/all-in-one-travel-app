@@ -18,6 +18,7 @@ const sessionStore = new KnexSessionStore({
 // setting routes
 const loginRoute = require("./routes/login");
 const registrationRoute = require("./routes/registration");
+const profileRoute = require("./routes/profile");
 const homeRoute = require("./routes/home");
 const translatorRoute = require("./routes/translator");
 const tripsRoute = require("./routes/trips");
@@ -58,6 +59,8 @@ app.use(passport.session());
 
 // middleware executed upon every request
 app.use((req, res, next) => {
+
+  console.log(req.user)
 
   // setting session cookie maxAge to 0 to invalidate any future requests
   if(req.url === "/logout") {
@@ -106,6 +109,7 @@ app.use((req, res, next) => {
 // API routes
 app.use("/login", loginRoute);
 app.use("/register", registrationRoute);
+app.use("/profile", profileRoute);
 app.use("/home", homeRoute);
 app.use("/trips", tripsRoute);
 app.use("/translator", translatorRoute);

@@ -26,7 +26,16 @@ function getHotelByTripId(req, res) {
     })
 }
 
+function addNewTrip(req, res) {
+  console.log('controller', req.query, req.user)
+  tripsModel.addNewTrip(req.user, req.query)
+  res.json({
+    message: 'cool'
+  })
+}
+
 module.exports = {
   getTripsByUserId,
   getHotelByTripId,
+  addNewTrip
 };

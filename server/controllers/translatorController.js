@@ -1,5 +1,4 @@
 require("dotenv").config();
-const generalUtils = require("../lib/generalUtils");
 const translatorModel = require("../models/translatorModel");
 const axios = require("axios");
 const googleTranslateApiKey = process.env.GOOGLE_TRANSLATE_API_KEY;
@@ -42,7 +41,9 @@ function getOnDemandTranslation(req, res) {
       });
     })
     .catch((error) => {
-      return generalUtils.errorRetrievingData(error);
+      res.status(500).json({
+        error,
+      });
     });
 }
 

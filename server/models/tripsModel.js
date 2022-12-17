@@ -32,7 +32,26 @@ function getHotelByTripId(tripId) {
     });
 }
 
+function addNewTrip(userId, trip) {
+  const {date_start, date_end, destination_country_id} = trip;
+  console.log('model', trip)
+  // return knex('travel_app.trip')
+  //   .insert({
+  //     user_id: userId,
+  //     date_start,
+  //     date_end,
+  //     destination_country_id
+  //   })
+    .then((response) => {
+      console.log(response)
+    })
+    .catch((error) => {
+      console.log(error)
+    })
+}
+
 module.exports = {
   getTripsByUserId,
   getHotelByTripId,
+  addNewTrip
 };
