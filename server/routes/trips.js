@@ -7,6 +7,10 @@ router.get("/", (req, res) => {
 
 router.get("/hotel", (req, res) => {
   tripsController.getHotelByTripId(req, res);
-})
+});
+
+router.get("/new-trip", (req, res) => {
+  tripsController.addNewTrip(req, res);
+});
 
 module.exports = router;
