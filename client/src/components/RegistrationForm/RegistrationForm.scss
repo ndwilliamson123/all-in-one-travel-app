@@ -1,0 +1,25 @@
+.registration-form {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  &__name,
+  &__home-country,
+  &__email,
+  &__password {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 16px;
+
+    & > label {
+      margin-right: 16px;
+    }
+
+    & > input {
+      width: 200px;
+      padding: 4px;
+      border-radius: 5px;
+    }
+  }
+}

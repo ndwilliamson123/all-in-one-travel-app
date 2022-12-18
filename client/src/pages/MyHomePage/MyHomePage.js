@@ -35,10 +35,13 @@ export default function HomePage() {
       <Route exact path="/home">
         <div className="home">
           <h1 className="home__welcome">Welcome, {userHomeData.name}</h1>
-          <div>
-            <p>{`Here are your return requirements when you return home!`}</p>
-            <p>{userHomeData.countryName}:</p>
-            <p>{userHomeData.returnReqs}</p>
+          <div className="home__return-reqs">
+            <p className="home__return-reqs-static">
+              Here are your return requirements when you return from a trip:
+            </p>
+            <p className="home__return-reqs-dynamic">
+              {userHomeData.returnReqs}
+            </p>
           </div>
           <TripList selectTrip={selectTrip} />
         </div>

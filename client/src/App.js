@@ -21,7 +21,7 @@ export default function App() {
           <Route path="/" exact component={LandingPage} />
           <Route
             path="/login"
-            component={(props) => <LoginPage {...props} />}
+            component={LoginPage}
           />
           <Route
             path="/register"

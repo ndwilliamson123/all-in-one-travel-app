@@ -29,7 +29,13 @@ export default function TripList({ selectTrip }) {
   }, [history]);
 
   return (
-    <div>
+    <div className="trip-list__container">
+      <div className="trip-list__header">
+        <Link to="/home/add-trip" className="trip-list__add-new-link">
+          Add a new trip
+        </Link>
+        <h3 className="trip-list__title">Your saved trips:</h3>
+      </div>
       <ul className="trip-list">
         {trips.map((trip, index) => {
           return (
@@ -42,7 +48,6 @@ export default function TripList({ selectTrip }) {
           );
         })}
       </ul>
-      <Link to="/home/add-trip">Add a new trip</Link>
     </div>
   );
 }

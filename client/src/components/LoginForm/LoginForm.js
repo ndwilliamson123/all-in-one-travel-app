@@ -1,11 +1,13 @@
-import { useState } from "react";
 import "./LoginForm.scss";
-import axios from "axios";
 import { API_prefix } from "../../App";
+import { useState } from "react";
+import axios from "axios";
+import { useHistory } from "react-router-dom";
 
-export default function LoginForm({ history }) {
-  const [username, setLogin] = useState("test@test.com");
-  const [password, setPassword] = useState("abc123");
+export default function LoginForm() {
+  const [username, setLogin] = useState("");
+  const [password, setPassword] = useState("");
+  const history = useHistory();
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -20,34 +22,40 @@ export default function LoginForm({ history }) {
         { withCredentials: true }
       )
       .then((response) => {
-        console.log(response.data);
         history.push("/home");
       })
       .catch((error) => {
         alert("invalid username or password");
-        console.log(error);
       });
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <label>Email: </label>
-      <input
-        type="text"
-        name="username"
-        value={username}
-        placeholder="Enter your email"
-        onChange={(event) => setLogin(event.target.value)}
-      ></input>
-      <label>Password: </label>
-      <input
-        type="password"
-        name="email"
-        value={password}
-        placeholder="Enter your password"
-        onChange={(event) => setPassword(event.target.value)}
-      ></input>
-      <button type="submit">Log In</button>
+    <form className="login-form" onSubmit={handleSubmit}>
+      <div>
+        <div className="login-form__email">
+          <label>Email: </label>
+          <input
+            type="text"
+            name="username"
+            value={username || ""}
+            placeholder="Enter your email"
+            onChange={(event) => setLogin(event.target.value)}
+          ></input>
+        </div>
+        <div className="login-form__password">
+          <label>Password: </label>
+          <input
+            type="password"
+            name="email"
+            value={password || ""}
+            placeholder="Enter your password"
+            onChange={(event) => setPassword(event.target.value)}
+          ></input>
+        </div>
+      </div>
+      <button className="login-form__submit-btn" type="submit">
+        Log In
+      </button>
     </form>
   );
 }

@@ -1,23 +1,22 @@
 .trip-card {
-    padding: 10px;
-    border: 1px solid black;
-    border-radius: 10px;
-    box-shadow: 10px 10px;
-    transition: transform .5s ease;
+  width: 40%;
+  padding: 10px;
+  border: 1px solid white;
+  border-radius: 10px;
+  transition: transform 0.5s ease;
+  margin-top: 20px;
+  margin-right: 40px;
+  margin-left: 40px;
 
-    &:hover {
-        transform: scale(1.2);
+  &:hover {
+    transform: scale(1.2);
+  }
+
+  & > a {
+    text-decoration: none;
+
+    &:visited {
+      color: inherit;
     }
-
-    &:nth-child(2n) {
-        margin-top: 20px;
-    }
-
-    & > a {
-        text-decoration: none;
-
-        &:visited {
-            color: inherit;
-        }
-    }
+  }
 }

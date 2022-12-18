@@ -1,3 +1,4 @@
+import "./SelectedTripPage.scss";
 import { TranslationCard, Map } from "../../components";
 import { useEffect, useState } from "react";
 import axios from "axios";
@@ -65,7 +66,7 @@ export default function SelectedTripPage(props) {
   };
 
   return (
-    <div>
+    <div className="selected-trip">
       <h3>Your Hotel</h3>
       <p>{hotelData.name}</p>
       <p>{hotelData.address}</p>

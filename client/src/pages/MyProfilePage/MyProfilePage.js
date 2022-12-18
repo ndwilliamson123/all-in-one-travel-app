@@ -6,7 +6,6 @@ import { API_prefix } from "../../App";
 export default function MyProfilePage() {
   const [name, setName] = useState("");
   const [login, setLogin] = useState("");
-  const [password, setPassword] = useState("");
   const [homeCountryId, setHomeCountryId] = useState(0);
 
   useEffect(() => {
@@ -44,40 +43,39 @@ export default function MyProfilePage() {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <label>Name: </label>
-      <input
-        type="text"
-        name="name"
-        value={name || ""}
-        placeholder="Enter your name"
-        onChange={(event) => setName(event.target.value)}
-      ></input>
-      <label>Select your home country: </label>
-      <select
-        name="homeCountry"
-        onChange={(event) => setHomeCountryId(event.target.value)}
-      >
-        <option value={2}>United States of America</option>
-        <option value={1}>Canada</option>
-      </select>
-      <label>Email: </label>
-      <input
-        type="text"
-        name="username"
-        value={login || ""}
-        placeholder="Enter your email"
-        onChange={(event) => setLogin(event.target.value)}
-      ></input>
-      <label>Password: </label>
-      <input
-        type="password"
-        name="email"
-        value={password || ""}
-        placeholder="Enter your password"
-        onChange={(event) => setPassword(event.target.value)}
-      ></input>
-      <button type="submit">Register</button>
+    <form className="profile-form" onSubmit={handleSubmit}>
+      <h2>Edit your profile data here</h2>
+      <div className="profile-form__name">
+        <label>Name: </label>
+        <input
+          type="text"
+          name="name"
+          value={name || ""}
+          placeholder="Enter your name"
+          onChange={(event) => setName(event.target.value)}
+        ></input>
+      </div>
+      <div className="profile-form__home-country">
+        <label>Select your home country: </label>
+        <select
+          name="homeCountry"
+          onChange={(event) => setHomeCountryId(event.target.value)}
+        >
+          <option value={2}>United States of America</option>
+          <option value={1}>Canada</option>
+        </select>
+      </div>
+      <div className="profile-form__email">
+        <label>Email: </label>
+        <input
+          type="text"
+          name="username"
+          value={login || ""}
+          placeholder="Enter your email"
+          onChange={(event) => setLogin(event.target.value)}
+        ></input>
+      </div>
+      <button type="submit">Save changes</button>
     </form>
   );
 }

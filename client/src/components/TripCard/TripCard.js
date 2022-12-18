@@ -51,10 +51,11 @@ export default function TripCard({ trip, index, clickCard }) {
     <li className="trip-card" onClick={handleClick}>
       <Link to={`/home/trip/${trip.id}`}>
         <h1 className="trip-card__destination">
-          {countries[destination_country_id]}
+          {index + 1} - {countries[destination_country_id]}
         </h1>
         <div className="trip-card__duration">
-          {`From ${months[startMonth]} ${startDay}, ${startYear} until ${months[endMonth]} ${endDay}, ${endYear}`}
+          <p>{`From ${months[startMonth]} ${startDay}, ${startYear}`}</p>
+          <p>{`until ${months[endMonth]} ${endDay}, ${endYear}`}</p>
         </div>
       </Link>
     </li>

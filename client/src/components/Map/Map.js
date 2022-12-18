@@ -46,7 +46,7 @@ export default function Map(props) {
             value={address || ""}
             onChange={(event) => setAddress(event.target.value)}
           ></input>
-          <button type="submit">Get it</button>
+          <button type="submit">Click to see entered address</button>
         </form>
         <GoogleMap
           zoom={13}

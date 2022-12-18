@@ -45,7 +45,11 @@
 <!-- ABOUT THE PROJECT -->
 ## <a id="about-the-project"></a> About The Project
 
-This is my capstone project for the BrainStation Web Development course. I incorporated many of the concepts I've learned over the past 8 months while giving myself a project. With the foundation my instuctors and TAs have provided, I was able to self-teach integration with Google Cloud APIs, learn and incorporate password salts and hashing, and Express.js sessions with CORs configuration.
+### <ins>December 17, 2022</ins>
+
+This is my capstone project for the BrainStation Web Development course. I incorporated many of the concepts I've learned over the past 8 months while giving myself a project with opportunities to grow further. For this first submission, I really focused specifically on learning more backend tools like user authentication, database administration, MVC methodologies, and integrating with third-party APIs.
+
+If you're looking at this (or grading it!) I plan on improving the frontend UX/UI design soon, but I hope you can see the hard work I put into the backend engineering :)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -61,6 +65,7 @@ This is my capstone project for the BrainStation Web Development course. I incor
 - MySQL
 - Knex
 - Passport
+- Google Cloud APIs
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -77,30 +82,30 @@ To get a local copy up and running follow these steps.
    ```sh
    git clone https://github.com/ndwilliamson123/all-in-one-travel-app.git
    ```
-2. Install NPM packages in "\client" folder:
+1. Install NPM packages in "\client" folder:
    ```sh
    cd client
    npm install
    ```
-3. Create a client side .env file:
+1. Create a client side .env file:
    ```sh
    touch .env
    ```
-4. Add the following properties to the client side .env file
+1. Add the following properties to the client side .env file
    ```sh
     REACT_APP_GOOGLE_MAPS_API_KEY = 
     REACT_APP_GOOGLE_GEOCODING_API_KEY = 
    ```
-5. Navigate to the "\server" folder and install NPM packages:
+1. Navigate to the "\server" folder and install NPM packages:
    ```sh
    cd ../server
    npm install
    ```
-6. Create a server side .env file:
+1. Create a server side .env file:
    ```sh
    touch .env
    ```
-7. Add the following properties to the .env file:
+1. Add the following properties to the .env file:
    ```sh
    PORT=8080
    dbUser =
@@ -113,13 +118,18 @@ To get a local copy up and running follow these steps.
    ALGO =
    GOOGLE_API_KEY = 
    ```
-8. Create a MySQL Schema called "travel_app" (or use your own, but replace the    `database` property in the knexfile.js file). Once complete:
+1. Create a MySQL Schema called "travel_app" (or use your own, but replace the    `database` property in the knexfile.js file). Once complete:
    ```sh
    knex migrate:latest
    ```
-9. Seed data is provided to get you started:
+1. Seed data is provided to get you started:
    ```sh
    knex seed:run
+   ```
+1. Username and password to login:
+   ```sh
+   username: test@test.com
+   password: abc123
    ```
 
 Please reach out to me if you have any questions: <a href="#contact">Contact me</a>
@@ -130,11 +140,18 @@ Please reach out to me if you have any questions: <a href="#contact">Contact me<
 
 ## <a id="roadmap"></a> Roadmap
 
-- [ ] Front-end and back-end user input validation on forms for stability and error handling
-- [ ] More interactive map with directions from user's hotel address to requested locations
-- [ ] Allow user to save their own specific translated phrases
+### Expected Completion: <ins>January 11, 2023</ins>
 
-See the [open issues](https://github.com/ndwilliamson123/all-in-one-travel-app/issues) for a full list of proposed features (and known issues).
+- [ ] Finish "add trip" feature for users to enter hotel information
+- [ ] Allow users to update their password
+- [ ] More interactive map with directions from user's hotel address to requested locations
+- [ ] Track when a user is logged in (i.e. not showing a "Login" button if the user is logged in, not showing a "Logout" button if the user is not logged in, etc.)
+- [ ] Overall more user friendly pages and UI/UX design
+
+### Expected Completion: <ins>TBD</ins>
+
+- [ ] More Local/Session storage to prevent API calls upon every page refresh
+- [ ] Front-end and back-end user input validation on forms for stability and error handling (and preventing issues like having a trip end date before a trip start date)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
