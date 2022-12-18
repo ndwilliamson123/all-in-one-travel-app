@@ -1,0 +1,34 @@
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/mixins" as *;
+
+.trip-list {
+  list-style: none;
+  width: 65%;
+  margin: auto;
+  margin-bottom: 10%;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-wrap: wrap;
+
+  &__title {
+    text-align: center;
+  }
+
+  &__header {
+    width: 20%;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &__add-new-link {
+    @include btn;
+
+    &:visited {
+      color: inherit;
+    }
+  }
+}

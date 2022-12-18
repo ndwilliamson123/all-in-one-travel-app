@@ -1,25 +1,44 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.scss";
+import { Switch, Route } from "react-router-dom";
+import { Header, Footer } from "./components";
+import {
+  LandingPage,
+  LoginPage,
+  RegistrationPage,
+  MyHomePage,
+  PageNotFound,
+  MyProfilePage,
+} from "./pages";
 
-function App() {
+export const API_prefix = "http://localhost:8080";
+
+export default function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <Header />
+      <main>
+        <Switch>
+          <Route path="/" exact component={LandingPage} />
+          <Route
+            path="/login"
+            component={LoginPage}
+          />
+          <Route
+            path="/register"
+            component={(props) => <RegistrationPage {...props} />}
+          />
+          <Route
+            path="/home"
+            component={(props) => <MyHomePage {...props} />}
+          />
+          <Route
+            path="/profile"
+            component={(props) => <MyProfilePage {...props} />}
+          />
+          <Route path="/*" component={PageNotFound} />
+        </Switch>
+      </main>
+      <Footer />
+    </>
   );
 }
-
-export default App;

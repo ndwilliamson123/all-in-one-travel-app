@@ -1,0 +1,21 @@
+@use "../../styles/partials/mixins" as *;
+
+.footer {
+  position: fixed;
+  margin-top: 24px;
+  padding-top: 24px;
+  padding-bottom: 24px;
+  bottom: 0;
+  width: 100%;
+  height: 50px;
+  background-color: black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  &__contact-link {
+    @include btn;
+    position: absolute;
+    right: 16px;
+  }
+}

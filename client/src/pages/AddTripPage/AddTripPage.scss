@@ -1,0 +1,30 @@
+.add-trip-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 50px;
+
+  &__notice {
+    margin: auto;
+    width: 50%;
+    text-align: center;
+  }
+
+  &__destination,
+  &__start-date,
+  &__end-date {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 16px;
+
+    & > label {
+      margin-right: 16px;
+    }
+
+    & > input {
+      width: 200px;
+      padding: 4px;
+      border-radius: 5px;
+    }
+  }
+}

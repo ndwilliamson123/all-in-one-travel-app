@@ -1,0 +1,33 @@
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/mixins" as *;
+
+.header {
+  margin: 16px auto 16px auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  &__logo {
+    width: 100px;
+    position: absolute;
+    left: 16px;
+    top: 16px;
+    border-radius: 20px;
+  }
+
+  & > div {
+    width: 50%;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__nav-bar,
+  &__authentication {
+    margin-top: 16px;
+    margin-bottom: 16px;
+  }
+
+  &__link {
+    @include btn;
+  }
+}

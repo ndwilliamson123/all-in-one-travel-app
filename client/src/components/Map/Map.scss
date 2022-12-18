@@ -1,0 +1,17 @@
+.map-container {
+    margin: auto;
+    width: 1000px;
+    height: 500px;
+}
+
+#map-form {
+    display: flex;
+    flex-direction: column;
+    width: 20%;
+
+    & > button {
+        width: 50%;
+        align-self: center;
+        margin-top: 10px;
+    }
+}

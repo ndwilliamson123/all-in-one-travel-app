@@ -1,0 +1,10 @@
+@use "variables" as *;
+
+@mixin btn {
+  border-radius: 10px;
+  background-color: $primary;
+  text-decoration: none;
+  color: $white;
+  padding: 12px;
+  width:fit-content;
+}
