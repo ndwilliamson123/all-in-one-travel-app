@@ -1,12 +1,18 @@
 import "./AddTripPage.scss";
 import axios from "axios";
 import { useState } from "react";
+import { useHistory } from "react-router-dom";
 import { API_prefix } from "../../App";
 
 export default function AddTripPage() {
+  const history = useHistory();
   const [countryId, setCountryId] = useState(3);
-  const [startDate, setStartDate] = useState();
-  const [endDate, setEndDate] = useState();
+  const [startDate, setStartDate] = useState("2023-01-04");
+  const [endDate, setEndDate] = useState("2023-01-12");
+  const [hotelName, setHotelName] = useState("MEININGER Hotel Paris Porte de Vincennes");
+  const [hotelAddress, setHotelAddress] = useState("37 Bd Carnot, 75012 Paris, France");
+  const [hotelPhone, setHotelPhone] = useState("+33182883057");
+  const [hotelWebsiteUrl, setHotelWebsiteUrl] = useState("https://www.meininger-hotels.com/en/hotels/paris/hotel-paris-porte-de-vincennes/?utm_source=gmb&utm_medium=referral&utm_campaign=PAR-PV&utm_content=website");
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -17,11 +23,18 @@ export default function AddTripPage() {
           date_start: startDate,
           date_end: endDate,
           destination_country_id: countryId,
+          hotel: {
+            name: hotelName,
+            address: hotelAddress,
+            phone: hotelPhone,
+            websiteUrl: hotelWebsiteUrl,
+          },
         },
         withCredentials: true,
       })
       .then((response) => {
         console.log(response);
+        history.push("/home")
       })
       .catch((error) => {
         console.log(error);
@@ -29,12 +42,9 @@ export default function AddTripPage() {
   };
 
   return (
-    <>
-      <h1 className="add-trip-form__notice">
-        THIS PAGE IS A WORK IN PROGRESS. YOU CAN SAVE THE TRIP AND SEE IT ON
-        YOUR LIST, BUT THIS FORM IS INCOMPLETE
-      </h1>
+    <div className="add-trip">
       <form className="add-trip-form" onSubmit={handleSubmit}>
+        <p>Please enter your new trip information</p>
         <div className="add-trip-form__destination">
           <label>Select your destination country: </label>
           <select
@@ -59,8 +69,51 @@ export default function AddTripPage() {
             onChange={(event) => setEndDate(event.target.value)}
           ></input>
         </div>
+        <div className="add-trip-form__hotel">
+          <p>Enter your hotel info below</p>
+          <div className="add-trip-form__hotel-name">
+            <label>Name:</label>
+            <input
+              type="text"
+              name="hotelName"
+              value={hotelName || ""}
+              placeholder="Fancy Hotel Name"
+              onChange={(event) => setHotelName(event.target.value)}
+            ></input>
+          </div>
+          <div className="add-trip-form__hotel-address">
+            <label>Address:</label>
+            <input
+              type="text"
+              name="hotelAddress"
+              value={hotelAddress || ""}
+              placeholder="Address"
+              onChange={(event) => setHotelAddress(event.target.value)}
+            ></input>
+          </div>
+          <div className="add-trip-form__hotel-phone">
+            <label>Phone:</label>
+            <input
+              type="text"
+              name="hotelPhone"
+              value={hotelPhone || ""}
+              placeholder="+33523969154"
+              onChange={(event) => setHotelPhone(event.target.value)}
+            ></input>
+          </div>
+          <div className="add-trip-form__hotel-website">
+            <label>Website:</label>
+            <input
+              type="text"
+              name="hotelWebsite"
+              value={hotelWebsiteUrl || ""}
+              placeholder="https://www.travel-site-hotel.com"
+              onChange={(event) => setHotelWebsiteUrl(event.target.value)}
+            ></input>
+          </div>
+        </div>
         <button type="submit">Create trip</button>
       </form>
-    </>
+    </div>
   );
 }

@@ -59,9 +59,6 @@ app.use(passport.session());
 
 // middleware executed upon every request
 app.use((req, res, next) => {
-
-  console.log(req.user)
-
   // setting session cookie maxAge to 0 to invalidate any future requests
   if(req.url === "/logout") {
     console.log(

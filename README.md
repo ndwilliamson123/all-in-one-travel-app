@@ -142,8 +142,8 @@ Please reach out to me if you have any questions: <a href="#contact">Contact me<
 
 ### Expected Completion: <ins>January 11, 2023</ins>
 
-- [ ] Finish "add trip" feature for users to enter hotel information
-- [ ] Allow users to update their password
+- [X] Finish "add trip" feature for users to enter hotel information
+- [X] Allow users to update their password
 - [ ] More interactive map with directions from user's hotel address to requested locations
 - [ ] Track when a user is logged in (i.e. not showing a "Login" button if the user is logged in, not showing a "Logout" button if the user is not logged in, etc.)
 - [ ] Overall more user friendly pages and UI/UX design
@@ -151,7 +151,7 @@ Please reach out to me if you have any questions: <a href="#contact">Contact me<
 ### Expected Completion: <ins>TBD</ins>
 
 - [ ] More Local/Session storage to prevent API calls upon every page refresh
-- [ ] Front-end and back-end user input validation on forms for stability and error handling (and preventing issues like having a trip end date before a trip start date)
+- [ ] Front-end and back-end user input validation on forms for stability and error handling (and preventing issues like having a trip end-date before a trip start-date)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 

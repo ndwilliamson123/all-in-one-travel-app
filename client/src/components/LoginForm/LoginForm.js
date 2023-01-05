@@ -5,8 +5,8 @@ import axios from "axios";
 import { useHistory } from "react-router-dom";
 
 export default function LoginForm() {
-  const [username, setLogin] = useState("");
-  const [password, setPassword] = useState("");
+  const [username, setLogin] = useState("test@test.com");
+  const [password, setPassword] = useState("abc123");
   const history = useHistory();
 
   const handleSubmit = (event) => {

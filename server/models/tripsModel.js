@@ -34,7 +34,6 @@ function getHotelByTripId(tripId) {
 
 function addNewTrip(userId, trip) {
   const {date_start, date_end, destination_country_id} = trip;
-  console.log('model', trip)
   return knex('travel_app.trip')
     .insert({
       user_id: userId,
@@ -42,8 +41,18 @@ function addNewTrip(userId, trip) {
       date_end,
       destination_country_id
     })
-    .then((response) => {
-      console.log(response)
+    .then((tripId) => {
+      return tripId[0]
+    })
+    .then((tripId) => {
+      return knex('travel_app.hotel')
+      .insert({
+        trip_id: tripId,
+        name: trip.hotel.name,
+        address: trip.hotel.address,
+        phone: trip.hotel.phone,
+        website: trip.hotel.websiteUrl
+      })
     })
     .catch((error) => {
       console.log(error)
