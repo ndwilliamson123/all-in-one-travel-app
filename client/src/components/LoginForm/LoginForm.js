@@ -23,6 +23,8 @@ export default function LoginForm() {
       )
       .then((response) => {
         history.push("/home");
+        localStorage.setItem("isLoggedIn", "true")
+        window.location.reload(false)
       })
       .catch((error) => {
         alert("invalid username or password");

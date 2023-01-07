@@ -145,7 +145,7 @@ Please reach out to me if you have any questions: <a href="#contact">Contact me<
 - [X] Finish "add trip" feature for users to enter hotel information
 - [X] Allow users to update their password
 - [ ] More interactive map with directions from user's hotel address to requested locations
-- [ ] Track when a user is logged in (i.e. not showing a "Login" button if the user is logged in, not showing a "Logout" button if the user is not logged in, etc.)
+- [X] Track when a user is logged in (i.e. not showing a "Login" button if the user is logged in, not showing a "Logout" button if the user is not logged in, etc.)
 - [ ] Overall more user friendly pages and UI/UX design
 
 ### Expected Completion: <ins>TBD</ins>
