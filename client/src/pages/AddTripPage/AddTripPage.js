@@ -6,13 +6,13 @@ import { API_prefix } from "../../App";
 
 export default function AddTripPage() {
   const history = useHistory();
-  const [countryId, setCountryId] = useState(3);
-  const [startDate, setStartDate] = useState("2023-01-04");
-  const [endDate, setEndDate] = useState("2023-01-12");
-  const [hotelName, setHotelName] = useState("MEININGER Hotel Paris Porte de Vincennes");
-  const [hotelAddress, setHotelAddress] = useState("37 Bd Carnot, 75012 Paris, France");
-  const [hotelPhone, setHotelPhone] = useState("+33182883057");
-  const [hotelWebsiteUrl, setHotelWebsiteUrl] = useState("https://www.meininger-hotels.com/en/hotels/paris/hotel-paris-porte-de-vincennes/?utm_source=gmb&utm_medium=referral&utm_campaign=PAR-PV&utm_content=website");
+  const [countryId, setCountryId] = useState(4);
+  const [startDate, setStartDate] = useState("2023-01-11");
+  const [endDate, setEndDate] = useState("2023-01-18");
+  const [hotelName, setHotelName] = useState("ibis Madrid Centro");
+  const [hotelAddress, setHotelAddress] = useState("C. de Manuela Malasaña, 6, 28004 Madrid, Spain");
+  const [hotelPhone, setHotelPhone] = useState("+34914485816");
+  const [hotelWebsiteUrl, setHotelWebsiteUrl] = useState("https://all.accor.com/hotel/3318/index.en.shtml?utm_campaign=seo+maps&utm_medium=seo+maps&utm_source=google+Maps");
 
   const handleSubmit = (event) => {
     event.preventDefault();

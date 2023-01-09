@@ -18,7 +18,7 @@ export default function Map(props) {
   }, [props.hotelAddress]);
 
   const getGpsCoordinates = (event) => {
-    console.log(document.getElementById("map-form"))
+    console.log(document.getElementById("map-form"));
     event.preventDefault();
 
     axios
@@ -37,7 +37,7 @@ export default function Map(props) {
     return <div>No map to display...</div>;
   } else {
     return (
-      <>
+      <div className="user-map">
         <form id="map-form" onSubmit={getGpsCoordinates}>
           <input
             type="text"
@@ -49,13 +49,13 @@ export default function Map(props) {
           <button type="submit">Click to see entered address</button>
         </form>
         <GoogleMap
-          zoom={13}
+          zoom={12}
           center={mapCenter}
           mapContainerClassName="map-container"
         >
           <Marker position={mapCenter} />
         </GoogleMap>
-      </>
+      </div>
     );
   }
 }

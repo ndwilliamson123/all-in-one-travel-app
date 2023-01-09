@@ -1,17 +1,29 @@
+@use "../../styles/partials/mixins" as *;
+
+.user-map {
+  display: flex;
+  flex-direction: column;
+
+  & input {
+    width: 80%;
+    align-self: center;
+  }
+}
+
 .map-container {
-    margin: auto;
-    width: 1000px;
-    height: 500px;
+  margin: auto;
+  width: 600px;
+  height: 300px;
 }
 
 #map-form {
-    display: flex;
-    flex-direction: column;
-    width: 20%;
+  display: flex;
+  flex-direction: column;
 
-    & > button {
-        width: 50%;
-        align-self: center;
-        margin-top: 10px;
-    }
+  & > button {
+    margin-top: 10px;
+    align-self: center;
+    margin-bottom: 10px;
+    @include btn;
+  }
 }

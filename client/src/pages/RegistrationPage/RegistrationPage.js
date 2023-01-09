@@ -12,9 +12,9 @@ export default function RegistrationPage(props) {
       </p>
       <RegistrationForm history={history} />
       <p className="registration__redirect">
-        Already signed up? Click{" "}
+        Already signed up? {" "}
         <Link to="/login" className="registration__redirect-link">
-          here
+        Click here
         </Link>{" "}
         to login!
       </p>

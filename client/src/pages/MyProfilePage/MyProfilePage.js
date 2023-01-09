@@ -71,7 +71,7 @@ export default function MyProfilePage() {
   };
 
   return (
-    <>
+    <div className="profile">
       <form className="profile-form" onSubmit={updateProfile}>
         <h2>Edit your profile data here</h2>
         <div className="profile-form__name">
@@ -140,6 +140,6 @@ export default function MyProfilePage() {
         </div>
         <button type="submit">Update password</button>
       </form>
-    </>
+    </div>
   );
 }

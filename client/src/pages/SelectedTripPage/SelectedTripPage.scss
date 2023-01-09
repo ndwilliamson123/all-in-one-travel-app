@@ -1,3 +1,69 @@
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/variables" as *;
+
 .selected-trip {
-  margin-bottom: 10%;
+  &__hotel {
+    display: flex;
+    justify-content: center;
+
+    &-info {
+      display: flex;
+      flex-direction: column;
+      border: 5px solid $primary;
+      border-radius: 10px;
+      padding: 10px;
+      margin-right: 25px;
+
+      & > h2 {
+        text-align: center;
+      }
+
+      & a {
+        color: $primary;
+      }
+    }
+  }
+
+  &__translations {
+    border: 5px solid $primary;
+    border-radius: 10px;
+    margin: 24px 240px 0 240px;
+    display: flex;
+    justify-content: space-evenly;
+
+    & > div {
+      display: flex;
+      flex-direction: column;
+    }
+
+    &-common {
+      & > ul {
+        margin-top: 0;
+      }
+    }
+
+    &-custom {
+      & > form {
+        display: flex;
+        flex-direction: column;
+
+        & > div {
+          display: flex;
+          justify-content: space-between;
+          margin-bottom: 24px;
+
+          & > textarea {
+            width: 200px;
+            height: 50px;
+          }
+        }
+
+        & > button {
+          width: fit-content;
+          align-self: flex-end;
+          @include btn;
+        }
+      }
+    }
+  }
 }

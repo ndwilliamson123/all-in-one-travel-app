@@ -1,18 +1,24 @@
+@use "../../styles/partials/mixins" as *;
+
 .add-trip {
   display: flex;
   flex-direction: column;
   align-items: center;
   border: 1px solid white;
   border-radius: 10px;
-  width: 50%;
+  width: 30%;
   margin: auto;
 
   &-form {
     display: flex;
     flex-direction: column;
-    align-items: flex-end;
+    align-items: center;
     margin-top: 16px;
     margin-bottom: 16px;
+
+    & > p:first-child {
+      margin-top: 0;
+    }
 
     &__destination,
     &__start-date,
@@ -67,6 +73,8 @@
 
     & button {
       align-self: center;
+      @include btn;
+      border: none;
     }
   }
 }

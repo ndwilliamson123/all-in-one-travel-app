@@ -1,7 +1,7 @@
 module.exports = [
   {
     user_id: "6a777929-ca21-4a68-b1b6-e44dd822aafd",
-    name: "Test User USA",
+    name: "William Gates",
     email: "test@test.com",
     password_salt: "22e4c0e0480d1d88bd62bcd2714de972",
     password_hash:
@@ -10,7 +10,7 @@ module.exports = [
   },
   {
     user_id: "4a0296b1-1d23-483e-9112-c1527d9ff003",
-    name: "Test User Canada",
+    name: "Steve Jobs",
     email: "test2@test2.com",
     password_salt: "c3d1048acde1f28c24d35d4bb3799e77",
     password_hash:

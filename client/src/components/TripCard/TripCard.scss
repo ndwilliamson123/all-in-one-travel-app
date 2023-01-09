@@ -1,7 +1,9 @@
+@use "../../styles/partials/variables" as *;
+
 .trip-card {
-  width: 40%;
-  padding: 10px;
-  border: 1px solid white;
+  width: 25%;
+  padding: 0 10px 10px 10px;
+  border: 5px solid $primary;
   border-radius: 10px;
   transition: transform 0.5s ease;
   margin-top: 20px;
@@ -15,5 +17,9 @@
   & > a {
     text-decoration: none;
     color: white;
+  }
+
+  &__destination {
+    font-size: 24px;
   }
 }

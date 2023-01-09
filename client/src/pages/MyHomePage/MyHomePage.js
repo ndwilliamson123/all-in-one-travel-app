@@ -34,13 +34,13 @@ export default function HomePage() {
     <Switch>
       <Route exact path="/home">
         <div className="home">
-          <h1 className="home__welcome">Welcome, {userHomeData.name}</h1>
+          <h1 className="home__welcome"><i>Welcome, {userHomeData.name}</i></h1>
           <div className="home__return-reqs">
-            <p className="home__return-reqs-static">
+            {/* <p className="home__return-reqs-static">
               Here are your return requirements when you return from a trip:
-            </p>
-            <p className="home__return-reqs-dynamic">
-              {userHomeData.returnReqs}
+            </p> */}
+            <p className="home__return-reqs-text">
+            <span>Here are your return requirements when you return from a trip:</span>{" "}{userHomeData.returnReqs}
             </p>
           </div>
           <TripList selectTrip={selectTrip} />

@@ -10,11 +10,20 @@
       margin-left: 128px;
     }
 
-    &-dynamic {
+    &-text {
       width: 50%;
       margin: auto;
       margin-bottom: 24px;
       line-height: 24px;
+
+      & > span:first-of-type {
+        text-decoration: underline;
+        font-weight: 700;
+      }
+
+      & > span:not(:first-of-type) {
+        text-decoration: i;
+      }
     }
   }
 }

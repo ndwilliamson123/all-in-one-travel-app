@@ -8,10 +8,9 @@ export default function LandingPage() {
       <div className="hero">
         <img className="hero__image" src={heroImage} alt="hero logo" />
         <div className="hero__text">
-          <h3>Welcome!</h3>
+          <h3 className="hero__welcome">WELCOME</h3>
           <p>This is the one-stop-shop for all your travel needs.</p>
-          <p>
-            If you have an upcoming trip or just want to see how our app works,{" "}
+          <p>Adventure awaits.{" "}
             <Link className="landing-page-sign-up" to="/register">
               Sign Up
             </Link>{" "}

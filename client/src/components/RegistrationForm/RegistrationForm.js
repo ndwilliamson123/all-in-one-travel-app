@@ -14,10 +14,10 @@ export function validateEmail(email) {
 }
 
 export default function RegistrationForm({ history }) {
-  const [name, setName] = useState("");
+  const [name, setName] = useState("Nick");
   const [homeCountryId, setHomeCountryId] = useState(2);
-  const [username, setLogin] = useState("");
-  const [password, setPassword] = useState("");
+  const [username, setLogin] = useState("ndwilliamson3@gmail.com");
+  const [password, setPassword] = useState("password");
 
   const handleSubmit = (event) => {
     event.preventDefault();

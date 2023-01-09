@@ -8,11 +8,10 @@ export default function LoginPage() {
       <p className="login__prompt">Please enter your login information</p>
       <LoginForm />
       <p className="login__redirect">
-        Don't have a login yet? Register{" "}
+        Don't have a login yet?{" "}
         <Link to="/register" className="login__redirect-link">
-          here
+          Register here.
         </Link>
-        !
       </p>
     </div>
   );
